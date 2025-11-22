@@ -1,0 +1,190 @@
+/* Estilos Gerais da Página de Preços */
+body {
+    background-color: #0a0a15; /* Fundo escuro consistente */
+    color: var(--warm-off-white, #ffffff);
+    font-family: var(--font-primary, "PP Neue Montreal", sans-serif);
+}
+
+.pricing-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 20px 40px;
+    min-height: 100vh;
+    background-color: #0a0a15;
+    z-index: 1;
+    position: relative;
+}
+
+.header-logo-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    text-align: center;
+    color: var(--warm-off-white-dim, #cccccc);
+    margin-bottom: 40px;
+    max-width: 500px;
+}
+
+/* Seção de Argumentos de Venda */
+.sales-arguments {
+    width: 100%;
+    max-width: 1100px;
+    margin-bottom: 80px;
+}
+
+.arguments-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.argument-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.argument-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.argument-card h3 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.argument-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--warm-off-white-dim, #cccccc);
+}
+
+/* Seção de Planos */
+.pricing-plans {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pricing-header {
+    margin-bottom: 40px;
+}
+
+/* Toggle de Preços */
+.price-toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 50px;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 8px;
+    border-radius: 20px;
+}
+
+.toggle-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--warm-off-white-dim, #cccccc);
+    transition: color 0.3s ease;
+}
+
+.price-toggle-container .active {
+    color: #fff;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--chatbot-primary, #7d048d);
+    transition: .4s;
+    border-radius: 28px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--chatbot-secondary, #5c3ac2);
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px);
+}
+
+.discount-badge {
+    background-color: #2ecc71;
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 8px;
+    margin-left: 5px;
+}
+
+/* Cards de Planos */
+.plan-cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.plan-card {
+    /* Reutilizando o estilo dos cards de argumentos */
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    flex: 1;
+    max-width: 350px;
+    text-align: center;
+}
+
+/* Adicione mais estilos para .plan-header, .plan-price, .plan-features, .cta-button conforme necessário */

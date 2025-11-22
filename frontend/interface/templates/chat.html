@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" class="chat-html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='chat.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" />
+    <script src="{{ url_for('static', path='chat.js') }}" defer></script>
+</head>
+<body class="chat-body">
+  <div class="chat-container">
+    <header class="chat-header fixed-header">
+      <h3>Olá! 👋<br>Como podemos ajudar?</h3>
+    </header>
+    
+    <div class="chat-content">
+      <!-- A lista de perguntas predefinidas será escondida pelo JS após o início da conversa -->
+      <div id="initial-view">
+        <ul class="predefined-questions">
+          <li><a href="#" data-question="O que é o Jovem Programador?">O que é o Jovem Programador?</a></li>
+          <li><a href="#" data-question="Quais são os requisitos?">Quais são os requisitos?</a></li>
+          <li><a href="#" data-question="Como me inscrevo?">Como me inscrevo?</a></li>
+        </ul>
+      </div>
+      
+      <!-- Área onde as mensagens serão exibidas -->
+      <ul class="chatbox">
+        <!-- As mensagens serão adicionadas aqui dinamicamente -->
+      </ul>
+    </div>
+    
+    <!-- Formulário para enviar mensagens -->
+    <div class="chat-input">
+      <textarea placeholder="Digite sua mensagem..." required></textarea>
+      <span id="send-btn" class="material-symbols-outlined">send</span>
+    </div>
+  </div>
+</body>
+</html>

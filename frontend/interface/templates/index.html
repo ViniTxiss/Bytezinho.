@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYTEZINHO - Seu assistente virtual</title> 
+  <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+    <main class="section hero-section">
+      <div id="container"></div>
+      <div id="stats"></div>
+    
+    
+       <header class="header-area">
+    <div class="logo-container" id="theme-toggle">
+        <div class="logo-circles">
+        <div class="circle circle-1 logo-symbol logo-symbol-1"><span class="letter">b</span></div>
+        <div class="circle circle-2 logo-symbol logo-symbol-2"><span class="letter">b</span></div>
+      </div>
+          
+        </div>
+        <div class="center-logo">
+          <h1 id="logo-text"><span class="rest-text">Bytezinho</span></h1>
+        </div>
+      </header>
+    
+      <div class="hero">
+        <h1 vw-leitura>Seja Bem-vindo(a) <br>estamos apresentando <br> Seu assistente virtual <br> interaja com ele</h1>
+        <a vw-leitura href="{{ url_for('precos_page') }}" class="hero-cta-button">Ver Planos e Preços</a>
+      </div>
+    
+    
+      <footer class="footer-links">
+        <!-- Links de rodapé podem ser adicionados aqui se necessário -->
+      </footer>
+    
+      
+    </main>
+    
+    
+  <script type="module" src="{{ url_for('static', path='script.js') }}"></script>
+
+  <!-- Chatbot Container -->
+  <div class="chatbot-container" id="chatbot-container" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="chatbot-heading">
+    <div class="chatbot-header">
+      <div class="chatbot-title">
+        <h3 id="chatbot-heading">🤖 Bytezinho AI</h3>
+        <span class="chatbot-status">Online</span>
+      </div>
+      <button class="chatbot-close-btn" id="chatbot-close-btn" aria-label="Fechar">×</button>
+    </div>
+
+    <div class="chatbot-body" id="chatbot-body" role="log" aria-live="polite">
+      <!-- Formulário de Captura de Leads -->
+      <div id="lead-capture-form">
+        <div class="chat-message bot">
+            <div class="message-content">
+                <strong>Olá! 👋</strong>
+                <p>Para começar, por favor, deixe seu nome e email. Entraremos em contato para oferecer a melhor solução para você!</p>
+            </div>
+        </div>
+        <form id="chatbot-lead-form">
+            <input type="text" id="lead-name" name="name" placeholder="Seu nome" required aria-label="Nome">
+            <input type="email" id="lead-email" name="email" placeholder="Seu melhor email" required aria-label="Email">
+            <button type="submit" id="lead-submit-btn">Iniciar Conversa</button>
+        </form>
+      </div>
+
+      <!-- Área da Conversa (começa oculta) -->
+      <div id="chat-conversation" class="hidden">
+        <div class="chat-message bot welcome-message">
+            <div class="message-content" id="welcome-message-content">
+                <!-- A mensagem de boas-vindas será inserida aqui pelo JS -->
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chatbot-input-container">
+      <label for="chatbot-input" class="sr-only">Digite sua mensagem</label>
+      <input type="text" id="chatbot-input" placeholder="Digite sua mensagem..." maxlength="500">
+      <button id="chatbot-send-btn" aria-label="Enviar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Chatbot Toggler Button -->
+  <button class="chatbot-toggler" id="chatbot-toggler" aria-label="Abrir chat">
+    <span class="chatbot-icon" role="img" aria-label="Ícone de robô">🤖</span>
+    <span class="chatbot-notification" aria-hidden="true"></span>
+  </button>
+
+  <link rel="stylesheet" href="{{ url_for('static', path='chat.css') }}">
+  <script src="{{ url_for('static', path='chatbot-ui.js') }}"></script>
+
+ 
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+</body>
+</html>
