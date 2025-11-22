@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planos e Preços - Bytezinho</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='precos.css') }}">
+</head>
+<body>
+    <main class="section pricing-section">
+        <!-- Header similar ao da página inicial para consistência -->
+        <header class="header-area">
+            <a href="{{ url_for('index') }}" class="logo-container" id="theme-toggle">
+                <div class="logo-circles">
+                    <div class="circle circle-1 logo-symbol logo-symbol-1"><span class="letter">b</span></div>
+                    <div class="circle circle-2 logo-symbol logo-symbol-2"><span class="letter">b</span></div>
+                </div>
+            </a>
+            <div class="center-logo">
+                <h1 id="logo-text"><a href="{{ url_for('index') }}" class="header-logo-link"><span class="rest-text">Bytezinho</span></a></h1>
+            </div>
+        </header>
+
+        <!-- Seção de Argumentos de Venda -->
+        <div class="sales-arguments-wrapper">
+            <section class="sales-arguments">
+                <h2 class="section-title" style="margin-top: 80px;">Por que a Bytezinho AI é a Escolha Certa para o Seu Negócio?</h2>
+                <div class="arguments-container">
+                    <div class="argument-card">
+                        <h3>🚀 Escalabilidade Garantida</h3>
+                        <p>Nossos planos crescem com você, garantindo performance e preço justo em qualquer volume de interações.</p>
+                    </div>
+                    <div class="argument-card">
+                        <h3>🧠 Análise Preditiva</h3>
+                        <p>Vá além da resposta e entenda a intenção e o humor do seu cliente para tomar decisões estratégicas.</p>
+                    </div>
+                    <div class="argument-card">
+                        <h3>💬 Suporte Humano 24/7</h3>
+                        <p>Nossa equipe está sempre disponível via chat para garantir que seu negócio nunca pare quando você mais precisar.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Seção de Planos e Preços (Unificada) -->
+        <section id="precos" class="pricing-plans">
+            <div class="pricing-header">
+                <h2>Planos e Preços</h2>
+                <p>Escolha o plano ideal para destravar o potencial do seu negócio com Bytezinho AI.</p>
+            </div>
+
+            <!-- Toggle de Preços -->
+            <div class="price-toggle-container">
+                <span class="toggle-label active" data-period="monthly">Mensal</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="price-toggle-checkbox">
+                    <span class="slider"></span>
+                </label>
+                <span class="toggle-label" data-period="annual">Anual <span class="discount-badge">Economize 10%</span></span>
+            </div>
+    
+            <div class="pricing-table">
+                <!-- Plano Básico -->
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <h3>Starter <br>Comece Agora</h3>
+                    </div>
+                    <div class="card-price">
+                        <span class="currency" id="price-basic-currency">R$</span>
+                        <span class="value" id="price-basic-value">590</span>
+                        <span class="period" id="price-basic-period">,90/mês</span>
+                    </div>
+                    <p class="annual-billing" id="annual-billing-basic">ou pague anualmente e <strong>economize 10%</strong></p>
+                    <ul class="features-list">
+                        <li><strong>Ideal para:</strong> <br> Cursos livres e escolas pequenas</li>
+                        <li><strong>Recursos:</strong> Chat inteligente + integração web + relatórios essenciais</li>
+                        <li><strong> Investimento:</strong> R$ 2.500</li>
+                       
+                    </ul>
+                    <a href="#" class="cta-button">Começar Agora</a>
+                </div>
+    
+                <!-- Plano Premium (Destaque) -->
+                <div class="pricing-card highlighted">
+                    <div class="popular-badge">Mais Popular</div>
+                    <div class="card-header">
+                        <h3>Professional <br> Mais Escolhido </h3>
+                    </div>
+                    <div class="card-price">
+                        <span class="currency" id="price-premium-currency">R$</span>
+                        <span class="value" id="price-premium-value">990</span>
+                        <span class="period" id="price-premium-period">,90/mês</span>
+                    </div>
+                    <p class="annual-billing" id="annual-billing-premium">ou pague anualmente e <strong>economize 10%</strong></p>
+                    <ul class="features-list">
+                        <li><strong>Ideal para:</strong> <br>Faculdades e instituições EAD</li>
+                        <li><strong>Recursos:</strong> Chat personalizado + WhatsApp + relatórios completos + dashboard executivo</li>
+                        <li><strong> Investimento:</strong> R$ 4.900</li>
+                    </ul>
+                    <a href="#" class="cta-button cta-highlighted">Contratar Premium</a>
+                </div>
+    
+                <!-- Plano Enterprise -->
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <h3>Enterprise<br> Máximo Poder</h3>
+                    </div>
+                    <div class="card-price">
+                        <span class="value custom-price">Sob Consulta</span>
+                    </div>
+                    <p class="annual-billing">Soluções robustas para grandes volumes.</p>
+                    <ul class="features-list">
+                        <li><strong>Ideal para:</strong> <br>Redes e grupos educacionais</li>
+                        <li><strong>Recursos:</strong> Solução completa + dashboards avançados + suporte VIP + API exclusiva</li>
+                        
+                    </ul>
+                    <a href="#" class="cta-button">Fale Conosco</a>
+                </div>
+            </div>
+    
+            <div class="custom-plan-cta">
+                <p>Precisa de um plano customizado? <a href="#">Fale com a nossa equipe!</a></p>
+            </div>
+        </section>
+    </main>
+    <script src="{{ url_for('static', path='precos.js') }}"></script>
+  
+    <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+</body>
+</html>

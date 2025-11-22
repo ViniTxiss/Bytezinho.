@@ -1,0 +1,291 @@
+/* ===== Chatbot component styles (adaptado ao tema do site) ===== */
+.chatbot-container {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    z-index: 1400;
+    width: 420px;
+    max-width: calc(100vw - 60px);
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    transform: scale(0.95);
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+    transform-origin: bottom right;
+    transition: all 0.28s cubic-bezier(.2,.9,.2,1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+.chatbot-container.active {
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.chatbot-header {
+    background: linear-gradient(90deg, var(--chatbot-gradient-start), var(--chatbot-gradient-end));
+    padding: 14px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chatbot-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    font-family: var(--font-primary, 'PP Neue Montreal', sans-serif);
+}
+
+.chatbot-title h3 { margin: 0; font-size: 1.05rem; }
+.chatbot-status { font-size: 0.8rem; color: rgba(255,255,255,0.9); text-transform: lowercase; }
+
+.chatbot-close-btn { background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; padding: 0; line-height: 1; }
+
+.chatbot-body { height: 380px; overflow-y: auto; padding: 18px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); }
+
+.chat-message { display: flex; gap: 10px; margin-bottom: 14px; align-items: flex-end; }
+
+/* Bot messages (left) */
+.chat-message.bot { justify-content: flex-start; }
+.chat-message.bot .message-content { background: linear-gradient(180deg, rgba(125,4,141,0.95), rgba(114,74,232,0.95)); color: var(--text-primary); border-bottom-left-radius: 4px; border-bottom-right-radius: 10px; }
+
+/* User messages (right) */
+.chat-message.user { justify-content: flex-end; }
+.chat-message.user .message-content { background: var(--chatbot-primary); color: var(--text-primary); border-bottom-right-radius: 4px; border-bottom-left-radius: 10px; }
+
+.message-content {
+    background: rgba(255,255,255,0.04);
+    padding: 12px 14px;
+    border-radius: 10px;
+    max-width: 75%;
+    color: #eaeaea;
+    cursor: pointer; /* indica que pode ser clicada */
+    overflow: hidden;
+    max-height: 1000px;
+    transition: max-height 220ms ease, opacity 220ms ease, padding 220ms ease;
+}
+
+/* ao colapsar, reduzimos altura, padding e opacidade para 'desaparecer' suavemente */
+.message-content.collapsed {
+    opacity: 0;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.message-time {
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.5);
+    display: block;
+    text-align: right;
+    margin-top: 4px;
+    margin-bottom: -2px;
+    font-weight: 300;
+}
+
+.suggestions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.suggestion-btn { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 8px 12px; border-radius: 14px; color: var(--text-primary); font-size: 0.9rem; cursor: pointer; }
+.suggestion-btn:hover { transform: translateY(-2px); }
+
+.chatbot-input-container { display: flex; gap: 10px; padding: 14px; border-top: 1px solid rgba(255,255,255,0.03); background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01)); }
+.chatbot-input-container input { flex: 1; padding: 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.04); background: rgba(0,0,0,0.15); color: var(--text-primary); }
+#chatbot-send-btn { background: var(--chatbot-primary); border: none; color: var(--text-primary); padding: 10px 12px; border-radius: 8px; cursor: pointer; }
+#chatbot-send-btn:hover { background: var(--chatbot-secondary); }
+
+/* Toggler */
+/* =========================================================
+   ESTILO DO BOTÃO CHATBOT (COM CORES HOLOGRÁFICAS DO TEMA)
+   ========================================================= */
+
+/* Arquivo: chat.css (Linha 2) */
+
+/* =========================================================
+   ESTILO DO BOTÃO CHATBOT (COM CORES HOLOGRÁFICAS DO TEMA)
+   ========================================================= */
+
+/* COLE ESTE CÓDIGO NO LUGAR DO .chatbot-toggler ATUAL */
+.chatbot-toggler {
+    /* 1. Posição e Tamanho */
+    position: fixed;
+    bottom: 35px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    z-index: 1200;
+
+    /* 2. Aparência */
+    background: var(--chatbot-toggler-bg);
+    color: var(--text-primary);
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+    /* 3. Layout Interno e Transições */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: all 0.28s cubic-bezier(.2,.9,.2,1);
+}
+
+.chatbot-toggler:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px var(--chatbot-toggler-glow); /* Sombra colorida */
+}
+
+/* 4. Efeito de Brilho (radial) */
+.chatbot-toggler::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(
+        circle at var(--mouse-x) var(--mouse-y), 
+        rgba(204, 170, 255, 0.7) 0%, /* Lilás/lavanda */
+        rgba(204, 170, 255, 0) 70%  /* Transparente */
+    );
+    opacity: 0.4; /* Começa com um brilho sutil */
+    transition: opacity 0.3s ease;
+    z-index: 1; /* Fica acima do fundo, mas abaixo do ícone */
+}
+
+.chatbot-toggler:hover::before {
+    opacity: 1; /* Mostra o brilho no hover */
+}
+
+/* 5. Garante que o ícone e notificação fiquem ACIMA do brilho */
+.chatbot-toggler .chatbot-icon,
+.chatbot-toggler .chatbot-notification {
+    position: relative;
+    z-index: 2;
+}
+
+.chatbot-icon {
+    font-size: 28px; /* Ajuste o tamanho do ícone 🤖 */
+}
+
+.chatbot-notification { position: absolute; top: -5px; right: -5px; width: 10px; height: 10px; background: var(--chatbot-status-online); border-radius: 50%; border: 2px solid var(--text-primary); }
+
+/* small responsive tweak */
+@media (max-width: 480px) {
+  .chatbot-container {
+    right: 12px;
+    left: 12px;
+    bottom: 85px; /* Ajustado para melhor posicionamento em mobile */
+    width: auto;
+  }
+
+}
+
+/* Estilo de foco para acessibilidade */
+.chatbot-toggler:focus-visible,
+.chatbot-close-btn:focus-visible,
+.suggestion-btn:focus-visible,
+#chatbot-send-btn:focus-visible,
+#chatbot-input:focus-visible {
+    outline: 2px solid var(--chatbot-toggler-bg);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 4px rgba(170, 119, 255, 0.5);
+}
+
+/* Classe para esconder elementos */
+.hidden {
+    display: none !important;
+}
+
+/* Estilos para o formulário de leads */
+#lead-capture-form {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#chatbot-lead-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 10px;
+}
+
+#chatbot-lead-form input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0,0,0,0.2);
+    color: var(--text-primary);
+    font-family: var(--font-primary, 'PP Neue Montreal', sans-serif);
+}
+
+#chatbot-lead-form input:focus {
+    outline: 1px solid var(--chatbot-toggler-bg);
+}
+
+#lead-submit-btn {
+    background: var(--chatbot-primary);
+    color: var(--text-primary);
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+#lead-submit-btn:hover {
+    background: var(--chatbot-secondary);
+}
+
+/* Estilo de foco para acessibilidade */
+.chatbot-toggler:focus-visible,
+.chatbot-close-btn:focus-visible,
+.suggestion-btn:focus-visible,
+#chatbot-send-btn:focus-visible,
+#chatbot-input:focus-visible,
+#lead-name:focus-visible,
+#lead-email:focus-visible,
+#lead-submit-btn:focus-visible {
+    outline: 2px solid var(--chatbot-toggler-bg);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 4px rgba(170, 119, 255, 0.5);
+}
+
+/* Classe para esconder elementos visualmente, mas mantê-los para leitores de tela */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Estilos para o overlay de integração (similar ao de detalhes) */
+#integration-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1100; /* Acima do fundo, abaixo do chatbot */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
